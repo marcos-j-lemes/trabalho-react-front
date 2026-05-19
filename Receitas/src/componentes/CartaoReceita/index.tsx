@@ -1,6 +1,6 @@
-import { v4 as uuidv4 } from "uuid";
-import Estrela from "../Avalicao/Estrela";
 import Avalicao from "../Avalicao";
+import { BiSolidEdit } from "react-icons/bi";
+
 
 
 interface CartaoReceitaProps {
@@ -9,43 +9,44 @@ interface CartaoReceitaProps {
         nome: string
         quantidade: number
         medida: string
-        imagem: string
-        aoApagar: (id: number) => void
     }[]
-
     instrucoes: string[]
+    imagem: string
 }
 
-const CartaoReceita = ({nome, ingredientes, instrucoes, imagem, aoApagar }: CartaoReceitaProps) => {
-
-
+const CartaoReceita = ({ nome, ingredientes, instrucoes, imagem }: CartaoReceitaProps) => {
     return (
-
-        <div className="card mb-3  shadow">
-            <div className="card-img-yop">
-                <img src={imagem} alt={nome}/>
-
-            </div>
+        <article className="card receita-card mb-3 shadow">
+            <img className="card-img-top receita-imagem" src={imagem} alt={nome} />
             <div className="card-body">
                 <h5 className="card-title">{nome}</h5>
 
                 <h4 className="card-text">Ingredientes</h4>
 
-
-                <ul className="body">
-                    {ingredientes.map( elemento  => <li key={uuidv4()} >{elemento.nome} ({elemento.quantidade} {elemento.medida})</li>)}
+                <ul className="body receita-lista">
+                    {ingredientes.map((elemento) => (
+                        <li key={`${nome}-${elemento.nome}`}>
+                            {elemento.nome} ({elemento.quantidade} {elemento.medida})
+                        </li>
+                    ))}
                 </ul>
 
-                <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                <h4 className="card-text">Modo de preparo</h4>
+
+                <ol className="receita-lista">
+                    {instrucoes.map((instrucao) => (
+                        <li key={`${nome}-${instrucao}`}>{instrucao}</li>
+                    ))}
+                </ol>
+                
 
                 <div className="card-footer">
-                    <Avalicao/>
-
+                    <BiSolidEdit color="grey" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+                    <Avalicao />
                 </div>
             </div>
-        </div>
+        </article>
     )
-
 }
 
 export default CartaoReceita

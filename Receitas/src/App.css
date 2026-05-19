@@ -1,1 +1,74 @@
-consele.log("sad")
+#root {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f7f4ef;
+  color: #2f2a24;
+}
+
+h1 {
+  margin: 32px auto 24px;
+  max-width: 1120px;
+  padding: 0 16px;
+}
+
+.receitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+}
+
+.receita-card {
+  overflow: hidden;
+}
+
+.receita-imagem {
+  height: 220px;
+  object-fit: cover;
+}
+
+.receita-lista {
+  padding-left: 20px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.avaliacao-titulo {
+  font-weight: 600;
+}
+
+.avaliacao {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.estrela {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.estrela:hover {
+  transform: scale(1.1);
+}

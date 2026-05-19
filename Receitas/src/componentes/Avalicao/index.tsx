@@ -1,20 +1,18 @@
 import { useState } from "react"
-import { v4 as uuidv4 } from "uuid";
-import { Estrela } from "./Estrela/index" 
+import Estrela from "./Estrela"
 
 const Avalicao = () => {
-
     const numEstrelas = 5
-    const estrelas = [...Array(numEstrelas)]
-    const [avalicao, setAvaliacao] = useState(0)
+    const [avaliacao, setAvaliacao] = useState(0)
 
     return (
-        <div>
-            {estrelas.map((_, i) => (
+        <div className="avaliacao" aria-label={`Nota: ${avaliacao} de ${numEstrelas}`}>
+            {Array.from({ length: numEstrelas }, (_, i) => (
                 <Estrela
-                    key={uuidv4()}
-                    selecionado={avalicao > i}
-                    aoSelecionar={() => {setAvaliacao( i + 1)}}
+                    key={i + 1}
+                    valor={i + 1}
+                    selecionado={avaliacao > i}
+                    aoSelecionar={() => setAvaliacao(i + 1)}
                 />
             ))}
         </div>
