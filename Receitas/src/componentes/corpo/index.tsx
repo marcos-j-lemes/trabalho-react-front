@@ -1,6 +1,8 @@
 import CartaoReceita from "../CartaoReceita"
 import receitasJson from "../../json/receitas.json"
 import imagemPadrao from "../../assets/aaa.jpeg"
+import Modal from "../Modal"
+
 
 const Corpo = () => {
     const receitas = receitasJson.receitas
@@ -13,9 +15,10 @@ const Corpo = () => {
                 key={receita.nome}
                 nome={receita.nome}
                 ingredientes={receita.ingredientes}
-                imagem={imagemPadrao}
                 instrucoes={receita.instrucoes}
+                imagem={imagemPadrao}
                 />
+                // <Modal id={receita.id} nome={receita.nome}/>
             ))}
 
         </main>

@@ -1,4 +1,9 @@
-const Modal = () => {
+interface ModalProps {
+    nome: string
+}
+
+
+const Modal = ( {nome}: ModalProps ) => {
 
     return (
         <div className="modal fade" id="exampleModal" tabindex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -22,6 +27,6 @@ const Modal = () => {
 }
 
 
-default export Modal
+export default Modal
 
 
